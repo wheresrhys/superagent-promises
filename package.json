@@ -1,0 +1,22 @@
+{
+  "name": "superagent-promises",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/wheresrhys/superagent-promises.git"
+  },
+  "license": "MIT",
+  "description": "Promise wrapper for superagent",
+  "main": "./index.js",
+  "peerDependencies": {
+    "es6-promise": "*",
+    "superagent": "*"
+  }
+  "keywords": [
+    "superagent",
+    "promise"
+  ],
+  "contributors": [{
+    "name": "Rhys Evans",
+    "email": "wheresrhys@gmail.com"
+  }]
+}
