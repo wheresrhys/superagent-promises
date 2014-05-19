@@ -1,5 +1,6 @@
 {
   "name": "superagent-promises",
+  "version": "0.0.0",
   "repository": {
       "type": "git",
       "url": "https://github.com/wheresrhys/superagent-promises.git"
