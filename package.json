@@ -10,7 +10,7 @@
   "peerDependencies": {
     "es6-promise": "*",
     "superagent": "*"
-  }
+  },
   "keywords": [
     "superagent",
     "promise"
