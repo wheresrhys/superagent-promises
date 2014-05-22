@@ -5,8 +5,8 @@ var promiseEnd,
             var self = this,
                 promise = new Promise(function (resolve, reject) {
                     nativeEnd.call(self, function (error, res) {
-                        if (error) {
-                            reject(error);
+                        if (error || !res.ok) {
+                            reject(error || res);
                         } else {
                             resolve(res);
                         }
