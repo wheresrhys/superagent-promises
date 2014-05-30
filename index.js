@@ -24,3 +24,8 @@ var promiseEnd,
 module.exports = function (request) {
     request.end = promiseEnd || getPromiseEnd(request.end);
 };
+
+// useful for testing
+module.exports.uncache = function () {
+    promiseEnd = undefined;
+};
