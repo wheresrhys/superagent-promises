@@ -13,7 +13,7 @@ var promiseEnd,
                     });
                 });
 
-            if (success) {
+            if (success || failure) {
                 promise = promise.then(success, failure);
             }
             
