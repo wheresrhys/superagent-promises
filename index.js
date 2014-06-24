@@ -1,10 +1,13 @@
-var promiseEnd,
-    getPromiseEnd = function(nativeEnd) {
+'use strict';
+
+var protoEnd,
+    nativePromiseEnd,
+    getPromiseEnd = function(previousEnd) {
         
-        return promiseEnd = function (success, failure) {
+        return function (success, failure) {
             var self = this,
                 promise = new Promise(function (resolve, reject) {
-                    nativeEnd.call(self, function (error, res) {
+                    previousEnd.call(self, function (error, res) {
                         if (error || !res.ok) {
                             reject(error || res);
                         } else {
@@ -22,10 +25,11 @@ var promiseEnd,
     };
 
 module.exports = function (request) {
-    request.end = promiseEnd || getPromiseEnd(request.end);
+    protoEnd = protoEnd || request.constructor.prototype.end;
+    request.end = request.end === protoEnd ? (nativePromiseEnd = getPromiseEnd(protoEnd)) : getPromiseEnd(request.end);
 };
 
 // useful for testing
 module.exports.uncache = function () {
-    promiseEnd = undefined;
+    nativePromiseEnd = undefined;
 };
