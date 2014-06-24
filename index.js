@@ -26,7 +26,7 @@ var protoEnd,
 
 module.exports = function (request) {
     protoEnd = protoEnd || request.constructor.prototype.end;
-    request.end = request.end === protoEnd ? (nativePromiseEnd = getPromiseEnd(protoEnd)) : getPromiseEnd(request.end);
+    request.end = request.end === protoEnd ? (nativePromiseEnd || (nativePromiseEnd = getPromiseEnd(protoEnd))) : getPromiseEnd(request.end);
 };
 
 // useful for testing
