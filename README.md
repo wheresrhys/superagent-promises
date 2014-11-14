@@ -8,7 +8,15 @@ Wraps superagent requests in ES6 promises (see the [es6 promises polyfill](https
 e.g
 
 ```javascript
-require('superagent').get('http://api.mysite.com/?id=23432').use(require('superagent-promises')).end();
+require('superagent')
+  .get('http://api.mysite.com/?id=23432')
+  .use(require('superagent-promises'))
+  .end()
+  .then(function (response) {
+    // handle a successful response
+  }, function (err) {
+    // handle an error
+  })
 ```
 
 ### Note on testing
